@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -52,16 +53,11 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
-				}
+        // Custom colors
+        'highlight': '#3B82F6',
+        'highlight-dark': '#2563EB',
+        'accent-1': '#10B981',
+        'accent-2': '#F59E0B',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -70,27 +66,79 @@ export default {
 			},
 			keyframes: {
 				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
+					from: { height: '0' },
+					to: { height: 'var(--radix-accordion-content-height)' },
 				},
 				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
+					from: { height: 'var(--radix-accordion-content-height)' },
+					to: { height: '0' },
+				},
+        'fade-in': {
+          '0%': { 
+            opacity: '0',
+            transform: 'translateY(10px)'
+          },
+          '100%': { 
+            opacity: '1',
+            transform: 'translateY(0)'
+          },
+        },
+        'fade-in-right': {
+          '0%': { 
+            opacity: '0',
+            transform: 'translateX(20px)'
+          },
+          '100%': { 
+            opacity: '1',
+            transform: 'translateX(0)'
+          },
+        },
+        'fade-in-left': {
+          '0%': { 
+            opacity: '0',
+            transform: 'translateX(-20px)'
+          },
+          '100%': { 
+            opacity: '1',
+            transform: 'translateX(0)'
+          },
+        },
+        'scale-in': {
+          '0%': { 
+            opacity: '0',
+            transform: 'scale(0.95)'
+          },
+          '100%': { 
+            opacity: '1',
+            transform: 'scale(1)'
+          },
+        },
+				'float': {
+					'0%, 100%': {
+						transform: 'translateY(0)',
 					},
-					to: {
-						height: '0'
-					}
-				}
+					'50%': {
+						transform: 'translateY(-5px)',
+					},
+				},
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
-			}
-		}
+				'accordion-up': 'accordion-up 0.2s ease-out',
+        'fade-in': 'fade-in 0.7s ease-out forwards',
+        'fade-in-right': 'fade-in-right 0.7s ease-out forwards',
+        'fade-in-left': 'fade-in-left 0.7s ease-out forwards',
+        'scale-in': 'scale-in 0.5s ease-out forwards',
+				'float': 'float 3s ease-in-out infinite',
+			},
+      fontFamily: {
+        'sans': ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
+        'display': ['Poppins', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+      },
+      backgroundImage: {
+        'hero-pattern': 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%239C92AC\' fill-opacity=\'0.05\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
+      },
+		},
 	},
 	plugins: [require("tailwindcss-animate")],
 } satisfies Config;
